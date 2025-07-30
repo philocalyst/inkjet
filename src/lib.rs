@@ -222,6 +222,23 @@ impl<Source: AsRef<str>> Highlighter<Source> {
 theme: None}
     }
 
+    pub fn to_ansi(mut self) -> Result<String> {
+         let source = self.clone().source.unwrap();
+        let language = self.language.unwrap();
+
+        use termcolor;
+        use termcolor::{StandardStream, ColorChoice};
+        let stream = StandardStream::stdout(ColorChoice::Always);
+
+        let formatter = match self.theme {
+            Some(theme) => crate::formatter::Terminal::new(theme.clone(), stream),
+            None => panic!(),
+        };
+        
+        self
+            .highlight_to_string(language, &formatter, source)
+    }
+
     /// Highlight into an instance of [`std::fmt::Write`] using the provided formatter.
     pub fn highlight_to_fmt<F, S, O>(
         &mut self,
