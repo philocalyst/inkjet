@@ -155,7 +155,7 @@ pub fn language_module_def(lang: &Language) -> TokenStream {
             true => format!("include_str!(\"../{}\")", &path),
         };
 
-        query.parse().unwrap()
+        query.parse().expect("This is a prebuilt, correct query")
     };
 
     let highlight_query = include_path("highlights");

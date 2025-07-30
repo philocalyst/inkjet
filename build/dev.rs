@@ -221,6 +221,7 @@ pub fn generate_themes_module() -> Result<()> {
         let query = format!("include_str!(\"{}\")", &path);
 
         query.parse().unwrap()
+        query.parse().expect("This was prebuilt, it is correct")
     };
 
     let module_start = quote::quote! {
@@ -255,10 +256,10 @@ pub fn generate_themes_module() -> Result<()> {
 
             quote::quote! {
                 #[test]
-                fn #name() {
+                fn #name() -> Result<(), Box<dyn Error>> {
                     let data = #path;
 
-                    Theme::from_helix(data).unwrap();
+                    Theme::from_helix(data)?;
                 }
             }
         });

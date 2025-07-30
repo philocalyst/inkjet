@@ -103,458 +103,458 @@ pub const ZENBURN: &str = include_str!("./data/zenburn.toml");
 mod tests {
     use crate::theme::*;
     #[test]
-    fn ACME() {
+    fn ACME() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/acme.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ADWAITA_DARK() {
+    fn ADWAITA_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/adwaita-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn AMBERWOOD() {
+    fn AMBERWOOD() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/amberwood.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn AO() {
+    fn AO() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ao.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn AYU_DARK() {
+    fn AYU_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ayu_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn AYU_LIGHT() {
+    fn AYU_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ayu_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn AYU_MIRAGE() {
+    fn AYU_MIRAGE() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ayu_mirage.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BASE16_DEFAULT_DARK() {
+    fn BASE16_DEFAULT_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/base16_default_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BASE16_DEFAULT_LIGHT() {
+    fn BASE16_DEFAULT_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/base16_default_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BASE16_TERMINAL() {
+    fn BASE16_TERMINAL() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/base16_terminal.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BASE16_TRANSPARENT() {
+    fn BASE16_TRANSPARENT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/base16_transparent.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BOGSTER() {
+    fn BOGSTER() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/bogster.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BOGSTER_LIGHT() {
+    fn BOGSTER_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/bogster_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn BOO_BERRY() {
+    fn BOO_BERRY() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/boo_berry.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn CATPPUCCIN_MOCHA() {
+    fn CATPPUCCIN_MOCHA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/catppuccin_mocha.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn CURZON() {
+    fn CURZON() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/curzon.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn CYAN_LIGHT() {
+    fn CYAN_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/cyan_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DARCULA() {
+    fn DARCULA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/darcula.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DARK_HIGH_CONTRAST() {
+    fn DARK_HIGH_CONTRAST() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/dark_high_contrast.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DARK_PLUS() {
+    fn DARK_PLUS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/dark_plus.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DOOM_ACARIO_DARK() {
+    fn DOOM_ACARIO_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/doom_acario_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DRACULA() {
+    fn DRACULA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/dracula.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn DRACULA_AT_NIGHT() {
+    fn DRACULA_AT_NIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/dracula_at_night.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn EMACS() {
+    fn EMACS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/emacs.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn EVERBLUSH() {
+    fn EVERBLUSH() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/everblush.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn EVERFOREST_DARK() {
+    fn EVERFOREST_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/everforest_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn EVERFOREST_LIGHT() {
+    fn EVERFOREST_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/everforest_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn FERRA() {
+    fn FERRA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ferra.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn FLATWHITE() {
+    fn FLATWHITE() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/flatwhite.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn FLEET_DARK() {
+    fn FLEET_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/fleet_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn FLEXOKI_LIGHT() {
+    fn FLEXOKI_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/flexoki_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn GITHUB_DARK() {
+    fn GITHUB_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/github_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn GITHUB_LIGHT() {
+    fn GITHUB_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/github_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn GRUBER_DARKER() {
+    fn GRUBER_DARKER() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/gruber-darker.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn GRUVBOX() {
+    fn GRUVBOX() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/gruvbox.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn HEISENBERG() {
+    fn HEISENBERG() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/heisenberg.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn HEX_STEEL() {
+    fn HEX_STEEL() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/hex_steel.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn HORIZON_DARK() {
+    fn HORIZON_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/horizon-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ICEBERG_DARK() {
+    fn ICEBERG_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/iceberg-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn INGRID() {
+    fn INGRID() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ingrid.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn IROASETA() {
+    fn IROASETA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/iroaseta.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn JELLYBEANS() {
+    fn JELLYBEANS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/jellybeans.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn JETBRAINS_DARK() {
+    fn JETBRAINS_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/jetbrains_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn KANAGAWA() {
+    fn KANAGAWA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/kanagawa.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn KAOLIN_DARK() {
+    fn KAOLIN_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/kaolin-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MATERIAL_DEEP_OCEAN() {
+    fn MATERIAL_DEEP_OCEAN() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/material_deep_ocean.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MELIORA() {
+    fn MELIORA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/meliora.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MELLOW() {
+    fn MELLOW() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/mellow.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MERIONETTE() {
+    fn MERIONETTE() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/merionette.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MODUS_OPERANDI() {
+    fn MODUS_OPERANDI() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/modus_operandi.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI() {
+    fn MONOKAI() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_PRO() {
+    fn MONOKAI_PRO() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_pro.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_PRO_MACHINE() {
+    fn MONOKAI_PRO_MACHINE() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_pro_machine.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_PRO_OCTAGON() {
+    fn MONOKAI_PRO_OCTAGON() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_pro_octagon.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_PRO_RISTRETTO() {
+    fn MONOKAI_PRO_RISTRETTO() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_pro_ristretto.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_PRO_SPECTRUM() {
+    fn MONOKAI_PRO_SPECTRUM() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_pro_spectrum.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn MONOKAI_SODA() {
+    fn MONOKAI_SODA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/monokai_soda.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NAYSAYER() {
+    fn NAYSAYER() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/naysayer.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NEW_MOON() {
+    fn NEW_MOON() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/new_moon.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NIGHT_OWL() {
+    fn NIGHT_OWL() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/night_owl.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NIGHTFOX() {
+    fn NIGHTFOX() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/nightfox.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NOCTIS() {
+    fn NOCTIS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/noctis.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NOCTIS_BORDO() {
+    fn NOCTIS_BORDO() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/noctis_bordo.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NORD() {
+    fn NORD() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/nord.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn NORD_LIGHT() {
+    fn NORD_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/nord_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ONEDARK() {
+    fn ONEDARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/onedark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ONEDARKER() {
+    fn ONEDARKER() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/onedarker.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ONELIGHT() {
+    fn ONELIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/onelight.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn PAPERCOLOR_LIGHT() {
+    fn PAPERCOLOR_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/papercolor-light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn PENUMBRA_PLUS() {
+    fn PENUMBRA_PLUS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/penumbra-plus.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn POIMANDRES() {
+    fn POIMANDRES() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/poimandres.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn POP_DARK() {
+    fn POP_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/pop-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn RASMUS() {
+    fn RASMUS() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/rasmus.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ROSE_PINE() {
+    fn ROSE_PINE() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/rose_pine.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SERIKA_DARK() {
+    fn SERIKA_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/serika-dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SERIKA_LIGHT() {
+    fn SERIKA_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/serika-light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SNAZZY() {
+    fn SNAZZY() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/snazzy.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SOLARIZED_DARK() {
+    fn SOLARIZED_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/solarized_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SOLARIZED_LIGHT() {
+    fn SOLARIZED_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/solarized_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SONOKAI() {
+    fn SONOKAI() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/sonokai.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn SPACEBONES_LIGHT() {
+    fn SPACEBONES_LIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/spacebones_light.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn STARLIGHT() {
+    fn STARLIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/starlight.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn TERM16_DARK() {
+    fn TERM16_DARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/term16_dark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn TOKYONIGHT() {
+    fn TOKYONIGHT() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/tokyonight.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn TTOX() {
+    fn TTOX() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/ttox.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn VARUA() {
+    fn VARUA() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/varua.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn VIM_DARK_HIGH_CONTRAST() {
+    fn VIM_DARK_HIGH_CONTRAST() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/vim_dark_high_contrast.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn VOXED() {
+    fn VOXED() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/voxed.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn YELLOWED() {
+    fn YELLOWED() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/yellowed.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ZED_ONEDARK() {
+    fn ZED_ONEDARK() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/zed_onedark.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
     #[test]
-    fn ZENBURN() {
+    fn ZENBURN() -> Result<(), Box<dyn Error>> {
         let data = include_str!("./data/zenburn.toml");
-        Theme::from_helix(data).unwrap();
+        Theme::from_helix(data)?;
     }
 }
