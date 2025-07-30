@@ -8,8 +8,8 @@
 //! 
 //! ## Included Languages
 //! 
-//! <details>
 //! <summary><strong style="cursor: pointer">Click to expand...</strong></summary>
+//! <details>
 //! 
 //! | Name | Recognized Tokens |
 //! | ---- | ------- |
@@ -211,7 +211,16 @@ pub struct Highlighter<Source> {
     theme: Option<&'static Theme>
 }
 
-impl Highlighter {
+/// Begin a highlight operation
+    pub fn highlight<Source: AsRef<str>>(source: Source, language: Language) -> Highlighter<Source> {
+     Highlighter {
+            source: Some(source),
+            language: Some(language), 
+            theme: None, // TODO: Implement a default theme
+            highlighter: TSHighlighter::new(),
+        }
+    }
+
 impl<Source: AsRef<str>> Highlighter<Source> {
     /// Create a new highlighter.
     pub fn new() -> Self {
