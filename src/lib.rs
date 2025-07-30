@@ -204,14 +204,15 @@ pub use crate::error::ThemeError;
 /// 
 /// Fortunately, this only needs to be done once per language - the result is stored in a global [`LazyLock`](std::sync::LazyLock).
 use crate::theme::Theme;
-pub struct Highlighter {
+pub struct Highlighter<Source> {
     highlighter: TSHighlighter,
-    source: Option<String>,
+    source: Option<Source>,
     language: Option<Language>,
     theme: Option<&'static Theme>
 }
 
 impl Highlighter {
+impl<Source: AsRef<str>> Highlighter<Source> {
     /// Create a new highlighter.
     pub fn new() -> Self {
         Highlighter {
@@ -350,13 +351,13 @@ theme: None}
     }
 }
 
-impl Default for Highlighter {
+impl<Source: AsRef<str>> Default for Highlighter<Source> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl Clone for Highlighter {
+impl<Source: AsRef<str>> Clone for Highlighter<Source> {
     fn clone(&self) -> Self {
         Self::new()
     }
