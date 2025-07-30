@@ -203,12 +203,22 @@ pub use crate::error::ThemeError;
 /// This is a non-trivial operation, so you may seem some latency depending on the grammar and query complexity.
 /// 
 /// Fortunately, this only needs to be done once per language - the result is stored in a global [`LazyLock`](std::sync::LazyLock).
-pub struct Highlighter(TSHighlighter);
+use crate::theme::Theme;
+pub struct Highlighter {
+    highlighter: TSHighlighter,
+    source: Option<String>,
+    language: Option<Language>,
+    theme: Option<&'static Theme>
+}
 
 impl Highlighter {
     /// Create a new highlighter.
     pub fn new() -> Self {
-        Self(TSHighlighter::new())
+        Highlighter {
+            highlighter: TSHighlighter::new(),
+        source :None,
+    language: None,
+theme: None}
     }
 
     /// Highlight into an instance of [`std::fmt::Write`] using the provided formatter.
@@ -228,7 +238,7 @@ impl Highlighter {
         let source = source.as_ref();
 
         let highlights = self
-            .0
+            .highlighter
             .highlight(
                 config,
                 source.as_bytes(),
@@ -266,7 +276,7 @@ impl Highlighter {
         let source = source.as_ref();
 
         let highlights = self
-            .0
+            .highlighter
             .highlight(
                 config,
                 source.as_bytes(),
@@ -323,7 +333,7 @@ impl Highlighter {
         let source = source.as_ref();
 
         let highlights = self
-            .0
+            .highlighter
             .highlight(
                 config,
                 source.as_bytes(),
