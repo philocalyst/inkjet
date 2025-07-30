@@ -28,26 +28,28 @@ pub fn check(config: &Config) -> Result<()> {
     Ok(())
 } 
 
+use git2::Repository;
+
+fn clone_helix_repo(config: &Config) -> Result<()> {
+    let repo = Repository::clone(
+        "https://github.com/helix-editor/helix",
+        "languages/temp/helix_all"
+    )?;
+    
+    let oid = git2::Oid::from_str(&config.helix_sum)?;
+    let commit = repo.find_commit(oid)?;
+    repo.reset(&commit.as_object(), git2::ResetType::Hard, None)?;
+    
+    Ok(())
+}
+
 pub fn download_langs(config: &Config) -> Result<()> {
     fs::remove_dir_all("languages")?;
     fs::create_dir_all("languages/temp/helix_queries")?;
 
     let languages = &config.languages;
 
-    Command::new("git")
-        .arg("clone")
-        .arg("https://github.com/helix-editor/helix")
-        .arg("languages/temp/helix_all")
-        .spawn()?
-        .wait()?;
-
-    Command::new("git")
-        .args(["reset", "--hard", &config.helix_sum])
-        .current_dir(
-            std::fs::canonicalize("./languages/temp/helix_all")?
-        )
-        .spawn()?
-        .wait()?;
+    clone_helix_repo(config);
 
     dir::copy(
         "languages/temp/helix_all/runtime/queries/",
@@ -220,7 +222,6 @@ pub fn generate_themes_module() -> Result<()> {
 
         let query = format!("include_str!(\"{}\")", &path);
 
-        query.parse().unwrap()
         query.parse().expect("This was prebuilt, it is correct")
     };
 
