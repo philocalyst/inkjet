@@ -17,6 +17,16 @@ set -euxo pipefail &&
 cp languages/temp/asm/queries/asm/* languages/temp/asm/queries
 '''
 
+[[languages]]
+name = "just"
+repo = "https://github.com/IndianBoy42/tree-sitter-just"
+hash = "bb0c898a"
+aliases = ["justfile"]
+command = '''
+set -euxo pipefail &&
+cp languages/temp/just/queries-flavored/helix/* languages/temp/just/queries
+'''
+
 # [[languages]]
 # name = "astro"
 # repo = "https://github.com/virchau13/tree-sitter-astro"

@@ -72,8 +72,7 @@ all_languages = [
   "language-lua",
   "language-make",
   "language-markdown",
-
-
+  "language-just",
   "language-matlab",
   "language-meson",
   "language-nix",
@@ -172,6 +171,7 @@ language-racket = []
 language-regex = []
 language-ruby = []
 language-rust = []
+language-just = []
 language-scala = []
 language-scheme = []
 language-scss = []
