@@ -206,31 +206,32 @@ pub use crate::error::ThemeError;
 use crate::theme::Theme;
 pub struct Highlighter<Source> {
     highlighter: TSHighlighter,
-    source: Option<Source>,
+    source: Source,
     language: Option<Language>,
     theme: Option<&'static Theme>
 }
 
 /// Begin a highlight operation
-    pub fn highlight<Source: AsRef<str>>(source: Source, language: Language) -> Highlighter<Source> {
+    pub fn highlight<Source: AsRef<str> + Default>(source: Source, language: Language) -> Highlighter<Source> {
      Highlighter {
-            source: Some(source),
+            source: source,
             language: Some(language), 
             theme: None, // TODO: Implement a default theme
             highlighter: TSHighlighter::new(),
         }
     }
 
-impl<Source: AsRef<str>> Highlighter<Source> {
+impl<Source: AsRef<str> + Default> Highlighter<Source> {
     /// Create a new highlighter.
     pub fn new() -> Self {
         Highlighter {
             highlighter: TSHighlighter::new(),
-        source :None,
+        source : Source::default(),
     language: None,
 theme: None}
     }
 
+    #[cfg(all(feature = "terminal", feature = "theme"))]
     pub fn to_ansi(mut self) -> Result<String> {
          let source = self.clone().source.unwrap();
         let language = self.language.unwrap();
@@ -258,7 +259,7 @@ theme: None}
     ) -> Result<()>
     where
         F: Formatter,
-        S: AsRef<str>,
+        S: AsRef<str> + Default,
         O: std::fmt::Write,
     {
         let config = lang.config();
@@ -296,7 +297,7 @@ theme: None}
     ) -> Result<()>
     where
         F: Formatter,
-        S: AsRef<str>,
+        S: AsRef<str> + Default,
         O: std::io::Write,
     {
         let config = lang.config();
@@ -333,7 +334,7 @@ theme: None}
     ) -> Result<String>
     where
         F: Formatter,
-        S: AsRef<str>,
+        S: AsRef<str> + Default,
     {
         let mut buffer = String::new();
 
@@ -354,7 +355,7 @@ theme: None}
         source: &'a S
     ) -> Result<impl Iterator<Item = Result<HighlightEvent>> + 'a> 
     where
-        S: AsRef<str>
+        S: AsRef<str> + Default
     {
         let config = lang.config();
         let source = source.as_ref();
@@ -377,13 +378,13 @@ theme: None}
     }
 }
 
-impl<Source: AsRef<str>> Default for Highlighter<Source> {
+impl<Source: AsRef<str> + Default> Default for Highlighter<Source> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<Source: AsRef<str>> Clone for Highlighter<Source> {
+impl<Source: AsRef<str> + Default> Clone for Highlighter<Source> {
     fn clone(&self) -> Self {
         Self::new()
     }
