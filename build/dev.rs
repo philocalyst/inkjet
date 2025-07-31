@@ -43,6 +43,18 @@ fn clone_helix_repo(config: &Config) -> Result<()> {
     Ok(())
 }
 
+fn reset_to(repo_url: &str, hash: &str) -> Result<()> {
+   let repo = Repository::init(
+     repo_url,
+   )?;
+
+   let oid = git2::Oid::from_str(hash)?;
+   let commit = repo.find_commit(oid)?;
+   repo.reset(&commit.as_object(), git2::ResetType::Hard, None)?;
+
+   Ok(())
+}
+
 pub fn download_langs(config: &Config) -> Result<()> {
     fs::remove_dir_all("languages")?;
     fs::create_dir_all("languages/temp/helix_queries")?;
@@ -74,11 +86,8 @@ pub fn download_langs(config: &Config) -> Result<()> {
 
             println!("Resetting {} onto {}...", lang.name, hash);
 
-            Command::new("git")
-                .current_dir(repo_dir)
-                .args(["reset", "--hard", hash])
-                .spawn()?
-                .wait()?;
+            reset_to(&repo_dir, hash);
+
         }
 
         if let Some(command) = &lang.command {
