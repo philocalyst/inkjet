@@ -96,6 +96,54 @@ pub mod asm {
         }
     }
 }
+#[cfg(feature = "language-just")]
+pub mod just {
+    use std::sync::LazyLock;
+    use tree_sitter::Language;
+    use tree_sitter_highlight::HighlightConfiguration;
+    use crate::constants::HIGHLIGHT_NAMES;
+    extern "C" {
+        pub fn tree_sitter_just() -> Language;
+    }
+    pub static CONFIG: LazyLock<HighlightConfiguration> = LazyLock::new(|| {
+        let mut config = HighlightConfiguration::new(
+                unsafe { tree_sitter_just() },
+                "just",
+                HIGHLIGHT_QUERY,
+                INJECTIONS_QUERY,
+                LOCALS_QUERY,
+            )
+            .expect("\"Failed to load highlight configuration for language 'just'\"");
+        config.configure(HIGHLIGHT_NAMES);
+        config
+    });
+    pub const HIGHLIGHT_QUERY: &str = include_str!(
+        "../languages/just/queries/highlights.scm"
+    );
+    pub const INJECTIONS_QUERY: &str = include_str!(
+        "../languages/just/queries/injections.scm"
+    );
+    pub const LOCALS_QUERY: &str = include_str!("../languages/just/queries/locals.scm");
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+        use crate::tree_sitter_highlight::Highlighter;
+        #[test]
+        fn grammar_loading() {
+            let mut parser = tree_sitter::Parser::new();
+            parser
+                .set_language(unsafe { &tree_sitter_just() })
+                .expect("Grammar should load successfully.");
+        }
+        #[test]
+        fn config_loading() {
+            let mut highlighter = Highlighter::new();
+            let _events = highlighter
+                .highlight(&CONFIG, b"", None, |_| None)
+                .expect("Highlighter should generate events successfully.");
+        }
+    }
+}
 #[cfg(feature = "language-awk")]
 pub mod awk {
     use std::sync::LazyLock;
@@ -3799,6 +3847,8 @@ pub enum Language {
     Ada,
     #[cfg(feature = "language-asm")]
     Asm,
+    #[cfg(feature = "language-just")]
+    Just,
     #[cfg(feature = "language-awk")]
     Awk,
     #[cfg(feature = "language-bash")]
@@ -3959,6 +4009,8 @@ impl Language {
         Self::Ada,
         #[cfg(feature = "language-asm")]
         Self::Asm,
+        #[cfg(feature = "language-just")]
+        Self::Just,
         #[cfg(feature = "language-awk")]
         Self::Awk,
         #[cfg(feature = "language-bash")]
@@ -4139,6 +4191,10 @@ impl Language {
             "assembly" => Some(Self::Asm),
             #[cfg(feature = "language-asm")]
             "assembler" => Some(Self::Asm),
+            #[cfg(feature = "language-just")]
+            "just" => Some(Self::Just),
+            #[cfg(feature = "language-just")]
+            "justfile" => Some(Self::Just),
             #[cfg(feature = "language-awk")]
             "awk" => Some(Self::Awk),
             #[cfg(feature = "language-bash")]
@@ -4421,6 +4477,8 @@ impl Language {
             Self::Ada => &ada::CONFIG,
             #[cfg(feature = "language-asm")]
             Self::Asm => &asm::CONFIG,
+            #[cfg(feature = "language-just")]
+            Self::Just => &just::CONFIG,
             #[cfg(feature = "language-awk")]
             Self::Awk => &awk::CONFIG,
             #[cfg(feature = "language-bash")]

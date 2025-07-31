@@ -233,7 +233,7 @@ theme: None}
 
     #[cfg(all(feature = "terminal", feature = "theme"))]
     pub fn to_ansi(mut self) -> Result<String> {
-         let source = self.clone().source.unwrap();
+         let source = self.clone().source;
         let language = self.language.unwrap();
 
         use termcolor;
